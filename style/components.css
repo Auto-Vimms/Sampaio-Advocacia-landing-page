@@ -1,0 +1,117 @@
+.btn-copper {
+  background: var(--cobre);
+  border: 1px solid var(--cobre);
+  border-radius: 0;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: .9rem 1.5rem;
+  text-transform: uppercase;
+}
+
+.btn-copper:hover {
+  background: #a9583d;
+  border-color: #a9583d;
+  color: #fff;
+}
+
+.btn-outline-copper {
+  border: 1px solid var(--cobre);
+  border-radius: 0;
+  color: var(--cobre-claro);
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: .75rem 1.3rem;
+  text-transform: uppercase;
+}
+
+.btn-outline-copper:hover {
+  background: var(--cobre);
+  color: #fff;
+}
+
+.section-title {
+  font-size: clamp(1.45rem, 2.8vw, 2.1rem);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.small-line {
+  background: var(--cobre);
+  height: 1px;
+  margin: 0 auto 2.5rem;
+  width: 56px;
+}
+
+.icon-line {
+  color: var(--cobre);
+  display: block;
+  height: 52px;
+  margin: 0 auto 1.3rem;
+  width: 52px;
+}
+
+.diff-icon {
+  color: var(--cobre-claro);
+  display: block;
+  height: 48px;
+  margin: 0 auto 1rem;
+  width: 48px;
+}
+
+.check-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.check-list li {
+  margin: .62rem 0;
+}
+
+.check-list i {
+  color: var(--cobre);
+  margin-right: .65rem;
+}
+
+.credential-box {
+  background: #fff;
+  border: 1px solid rgba(189, 106, 73, .22);
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.quote-box {
+  background: #fff;
+  border: 1px solid rgba(189, 106, 73, .24);
+  box-shadow: 0 18px 40px rgba(3, 27, 34, .06);
+  padding: 2rem;
+}
+
+.form-label {
+  color: #17242a;
+  font-weight: 700;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid rgba(23, 36, 42, .18);
+  border-radius: 0;
+  padding: .82rem .95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--cobre);
+  box-shadow: 0 0 0 .2rem rgba(189, 106, 73, .13);
+}
+
+.form-check-input {
+  border-color: rgba(189, 106, 73, .55);
+  border-radius: 0;
+}
+
+.form-check-input:checked {
+  background-color: var(--cobre);
+  border-color: var(--cobre);
+}

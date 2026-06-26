@@ -1,0 +1,310 @@
+.navbar {
+  background: rgba(3, 27, 34, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+.navbar-brand {
+  align-items: center;
+  color: #fff !important;
+  display: flex;
+  gap: .7rem;
+}
+
+.logo-mark {
+  display: grid;
+  height: 44px;
+  overflow: hidden;
+  place-items: center;
+  width: 44px;
+}
+
+.logo-mark img {
+  mix-blend-mode: lighten;
+}
+
+.brand-text {
+  font-family: 'Cinzel', serif;
+  font-size: .98rem;
+  letter-spacing: .14em;
+  line-height: 1.05;
+}
+
+.navbar .nav-link {
+  color: #f6f3ef !important;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin: 0 .45rem;
+  text-transform: uppercase;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--cobre-claro) !important;
+}
+
+.hero {
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(3, 27, 34, .98) 0%, rgba(3, 27, 34, .90) 44%, rgba(3, 27, 34, .58) 100%),
+    radial-gradient(circle at 78% 30%, rgba(255, 255, 255, .12), transparent 23%),
+    linear-gradient(135deg, #092f39 0%, #031b22 65%);
+  color: #fff;
+  display: flex;
+  min-height: 720px;
+  overflow: hidden;
+  padding-top: 92px;
+  position: relative;
+}
+
+.hero::after {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .14) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .10) 0 1px, transparent 1px 44px);
+  bottom: 0;
+  clip-path: polygon(28% 0, 100% 14%, 100% 100%, 0 100%);
+  content: "";
+  height: 86%;
+  opacity: .45;
+  position: absolute;
+  right: 0;
+  transform: skewX(-5deg);
+  width: min(46vw, 580px);
+}
+
+.hero-content {
+  margin: auto;
+  max-width: 850px;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-mark {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 4.6rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  color: var(--cobre-claro);
+  font-weight: 500;
+  letter-spacing: .24em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-size: 1.18rem;
+  line-height: 1.75;
+  margin: 0 auto 2rem;
+  max-width: 640px;
+}
+
+.services {
+  background: #f6f1eb;
+  padding: 72px 0 54px;
+}
+
+.service-card {
+  border-right: 1px solid var(--line);
+  height: 100%;
+  padding: 1.3rem 1rem;
+  text-align: center;
+}
+
+.service-card:last-child {
+  border-right: 0;
+}
+
+.service-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.service-card p {
+  color: #27343a;
+  font-size: .88rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.about {
+  background: #fbf8f4;
+}
+
+.about-text {
+  padding: 70px 7vw 70px 0;
+}
+
+.eyebrow {
+  color: var(--cobre);
+  font-family: 'Cinzel', serif;
+  letter-spacing: .12em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.about .title-line {
+  background: var(--cobre);
+  height: 1px;
+  margin: 0 0 1.65rem;
+  width: 56px;
+}
+
+.about-image {
+  background:
+    linear-gradient(0deg, rgba(3, 27, 34, .18), rgba(3, 27, 34, .18)),
+    radial-gradient(circle at 62% 37%, rgba(212, 138, 104, .35), transparent 20%),
+    linear-gradient(135deg, #101820, #3b2b25);
+  min-height: 560px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-image::before {
+  border: 1px solid rgba(212, 138, 104, .35);
+  content: "";
+  inset: 12%;
+  position: absolute;
+}
+
+.about-image::after {
+  color: #fff;
+  content: "Foto profissional da advogada";
+  font-family: 'Cinzel', serif;
+  inset: auto 8% 9%;
+  letter-spacing: .11em;
+  opacity: .78;
+  position: absolute;
+  text-align: center;
+}
+
+.differentials {
+  background: var(--azul-profundo);
+  color: #fff;
+  padding: 58px 0 44px;
+}
+
+.diff-card {
+  border-right: 1px solid rgba(189, 106, 73, .36);
+  height: 100%;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+.diff-card:last-child {
+  border-right: 0;
+}
+
+.diff-card i {
+  color: var(--cobre-claro);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.diff-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: .92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.diff-card p {
+  color: #dce4e6;
+  font-size: .88rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.curriculo {
+  background: #f6f1eb;
+  padding: 78px 0;
+}
+
+.timeline-item {
+  border-left: 1px solid var(--cobre);
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+}
+
+.timeline-item strong {
+  display: block;
+}
+
+.orcamento {
+  background: #fbf8f4;
+  padding: 78px 0;
+}
+
+.quote-intro {
+  color: #455158;
+  line-height: 1.75;
+  margin: 0 auto 2.2rem;
+  max-width: 760px;
+  text-align: center;
+}
+
+.budget-sidebar {
+  background: var(--azul-profundo);
+  color: #fff;
+  height: 100%;
+  padding: 2rem;
+}
+
+.budget-sidebar p {
+  color: #dce4e6;
+  line-height: 1.65;
+}
+
+.budget-sidebar .mini-item {
+  border-top: 1px solid rgba(212, 138, 104, .28);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.cta-strip {
+  background: #fbf8f4;
+  border-top: 1px solid rgba(189, 106, 73, .15);
+  padding: 28px 0;
+}
+
+.cta-strip h2 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  margin: 0;
+}
+
+footer {
+  background: #031b22;
+  color: #e8f0f2;
+  padding: 28px 0 20px;
+}
+
+footer a {
+  color: #e8f0f2;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--cobre-claro);
+}
+
+.footer-mini {
+  color: #aebdc1;
+  font-size: .82rem;
+}

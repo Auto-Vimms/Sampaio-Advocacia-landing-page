@@ -1,0 +1,50 @@
+.text-copper {
+  color: var(--cobre) !important;
+}
+
+.bg-deep {
+  background: var(--azul-profundo) !important;
+}
+
+.logo-mark--spaced {
+  padding: 2px;
+}
+
+.logo-mark__image {
+  filter: brightness(1.05);
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.hero-logo {
+  filter: drop-shadow(0 0 18px rgba(189, 106, 73, .35));
+  height: 180px;
+  object-fit: contain;
+  width: 180px;
+}
+
+.max-width-about {
+  max-width: 680px;
+}
+
+@media (max-width: 991.98px) {
+  .hero {
+    min-height: 640px;
+  }
+
+  .service-card,
+  .diff-card {
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
+    padding: 1.8rem 1rem;
+  }
+
+  .about-text {
+    padding: 56px 1rem;
+  }
+
+  .about-image {
+    min-height: 360px;
+  }
+}

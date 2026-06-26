@@ -1,0 +1,30 @@
+:root {
+  --azul-profundo: #06272f;
+  --azul-escuro: #031b22;
+  --cobre: #bd6a49;
+  --cobre-claro: #d48a68;
+  --offwhite: #f3eee8;
+  --texto: #17242a;
+  --muted: #687178;
+  --line: rgba(189, 106, 73, .35);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--offwhite);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand,
+.serif {
+  font-family: 'Cinzel', serif;
+  letter-spacing: .06em;
+}
