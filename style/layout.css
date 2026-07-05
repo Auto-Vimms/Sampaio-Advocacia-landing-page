@@ -247,7 +247,7 @@
   display: block;
 }
 
-.orcamento {
+.agendamento {
   background: #fbf8f4;
   padding: 78px 0;
 }
@@ -260,19 +260,19 @@
   text-align: center;
 }
 
-.budget-sidebar {
+.appointment-sidebar {
   background: var(--azul-profundo);
   color: #fff;
   height: 100%;
   padding: 2rem;
 }
 
-.budget-sidebar p {
+.appointment-sidebar p {
   color: #dce4e6;
   line-height: 1.65;
 }
 
-.budget-sidebar .mini-item {
+.appointment-sidebar .mini-item {
   border-top: 1px solid rgba(212, 138, 104, .28);
   margin-top: 1rem;
   padding-top: 1rem;

@@ -8,7 +8,7 @@ Landing page institucional organizada em HTML, CSS e JavaScript modular.
 - `assets/`: imagens e icones da marca.
 - `style/`: estilos separados por responsabilidade.
 - `src/config/`: configuracoes de contato e envio.
-- `src/domain/`: regras de negocio do formulario de orcamento.
+- `src/domain/`: regras de negocio do formulario de agendamento.
 - `src/infrastructure/`: entregas externas, como WhatsApp e futuro e-mail.
 - `src/ui/`: comportamentos de interface.
 
