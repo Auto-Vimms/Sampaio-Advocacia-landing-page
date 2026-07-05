@@ -1,9 +1,9 @@
 const REQUIRED_FIELDS = ['nome', 'telefone', 'descricao'];
 
-export class BudgetForm {
+export class AppointmentForm {
   constructor(formElement) {
     if (!formElement) {
-      throw new Error('Budget form element was not found.');
+      throw new Error('Appointment form element was not found.');
     }
 
     this.formElement = formElement;

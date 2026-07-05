@@ -4,29 +4,29 @@ export class WhatsAppDelivery {
     this.lawyerName = lawyerName;
   }
 
-  send(budgetRequest) {
-    const message = this.createMessage(budgetRequest);
+  send(appointmentRequest) {
+    const message = this.createMessage(appointmentRequest);
     const url = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     window.open(url, '_blank', 'noopener');
   }
 
-  createMessage(budgetRequest) {
-    const services = budgetRequest.servicos.join(', ');
+  createMessage(appointmentRequest) {
+    const services = appointmentRequest.servicos.join(', ');
 
     return [
-      `Ola, ${this.lawyerName}! Gostaria de solicitar um orçamento.`,
+      `Ola, ${this.lawyerName}! Gostaria de solicitar um agendamento.`,
       '',
-      `Nome: ${budgetRequest.nome}`,
-      `Empresa: ${budgetRequest.empresa}`,
-      `WhatsApp: ${budgetRequest.telefone}`,
-      `E-mail: ${budgetRequest.email}`,
-      `Tipo de empresa: ${budgetRequest.tipoEmpresa}`,
+      `Nome: ${appointmentRequest.nome}`,
+      `Empresa: ${appointmentRequest.empresa}`,
+      `WhatsApp: ${appointmentRequest.telefone}`,
+      `E-mail: ${appointmentRequest.email}`,
+      `Tipo de empresa: ${appointmentRequest.tipoEmpresa}`,
       `Servicos de interesse: ${services}`,
-      `Prazo desejado: ${budgetRequest.urgencia}`,
+      `Prazo desejado: ${appointmentRequest.urgencia}`,
       '',
       'Descricao da necessidade:',
-      budgetRequest.descricao,
+      appointmentRequest.descricao,
     ].join('\n');
   }
 }
