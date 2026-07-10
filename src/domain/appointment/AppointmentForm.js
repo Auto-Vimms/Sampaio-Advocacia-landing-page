@@ -1,4 +1,4 @@
-const REQUIRED_FIELDS = ['nome', 'telefone', 'descricao'];
+const REQUIRED_FIELDS = ['nome', 'email', 'documento', 'telefone', 'observacoes'];
 
 export class AppointmentForm {
   constructor(formElement) {
@@ -16,12 +16,12 @@ export class AppointmentForm {
   collect() {
     return {
       nome: this.getInputValue('nome'),
-      empresa: this.getInputValue('empresa') || 'Nao informado',
+      documento: this.getInputValue('documento'),
       telefone: this.getInputValue('telefone'),
-      email: this.getInputValue('email') || 'Nao informado',
+      email: this.getInputValue('email'),
       tipoEmpresa: this.getInputValue('tipoEmpresa') || 'Nao informado',
-      urgencia: this.getInputValue('urgencia') || 'Nao informado',
-      descricao: this.getInputValue('descricao'),
+      momento: this.getInputValue('momento') || 'Nao informado',
+      observacoes: this.getInputValue('observacoes'),
       servicos: this.getSelectedServices(),
     };
   }

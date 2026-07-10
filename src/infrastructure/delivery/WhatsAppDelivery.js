@@ -16,17 +16,14 @@ export class WhatsAppDelivery {
 
     return [
       `Ola, ${this.lawyerName}! Gostaria de solicitar um agendamento.`,
-      '',
       `Nome: ${appointmentRequest.nome}`,
-      `Empresa: ${appointmentRequest.empresa}`,
+      `CNPJ/CPF: ${appointmentRequest.documento}`,
       `WhatsApp: ${appointmentRequest.telefone}`,
       `E-mail: ${appointmentRequest.email}`,
       `Tipo de empresa: ${appointmentRequest.tipoEmpresa}`,
-      `Servicos de interesse: ${services}`,
-      `Prazo desejado: ${appointmentRequest.urgencia}`,
-      '',
-      'Descricao da necessidade:',
-      appointmentRequest.descricao,
+      `Momento do negócio: ${appointmentRequest.momento}`,
+      'Observações:',
+      appointmentRequest.observacoes,
     ].join('\n');
   }
 }

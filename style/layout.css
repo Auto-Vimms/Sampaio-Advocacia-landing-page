@@ -108,23 +108,23 @@
   max-width: 640px;
 }
 
-.services {
+.areas {
   background: #f6f1eb;
   padding: 72px 0 54px;
 }
 
-.service-card {
+.area-card {
   border-right: 1px solid var(--line);
   height: 100%;
   padding: 1.3rem 1rem;
   text-align: center;
 }
 
-.service-card:last-child {
+.area-card:last-child {
   border-right: 0;
 }
 
-.service-card h3 {
+.area-card h3 {
   font-family: 'Inter', sans-serif;
   font-size: .95rem;
   font-weight: 800;
@@ -132,7 +132,7 @@
   text-transform: uppercase;
 }
 
-.service-card p {
+.area-card p {
   color: #27343a;
   font-size: .88rem;
   line-height: 1.65;
@@ -195,7 +195,7 @@
   text-align: center;
 }
 
-.differentials {
+.pillars {
   background: var(--azul-profundo);
   color: #fff;
   padding: 58px 0 44px;
@@ -232,7 +232,7 @@
   margin: 0;
 }
 
-.curriculo {
+.founder {
   background: #f6f1eb;
   padding: 78px 0;
 }
