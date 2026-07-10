@@ -33,7 +33,7 @@
     min-height: 640px;
   }
 
-  .service-card,
+  .area-card,
   .diff-card {
     border-bottom: 1px solid var(--line);
     border-right: 0;
