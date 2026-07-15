@@ -206,8 +206,8 @@
               </div>
               <div class="col-md-6">
                 <label for="tipoEmpresa" class="form-label">Tipo de empresa</label>
-                <select class="form-select" id="tipoEmpresa">
-                  <option value="Não informado" selected>Selecione uma opção</option>
+                <select class="form-select" id="tipoEmpresa" required>
+                  <option value="" selected disabled>Selecione uma opção</option>
                   <option>MEI</option>
                   <option>ME / EPP</option>
                   <option>LTDA</option>
@@ -227,7 +227,7 @@
               </div>
               <div class="col-12">
                 <label for="observacoes" class="form-label">Observações adicionais</label>
-                <textarea class="form-control" id="observacoes" rows="5" placeholder="Conte brevemente o que precisa resolver, documentos envolvidos, fase da empresa ou objetivo do atendimento." required></textarea>
+                <textarea class="form-control" id="observacoes" rows="5" placeholder="Conte brevemente o que precisa resolver, documentos envolvidos, fase da empresa ou objetivo do atendimento." ></textarea>
               </div>
               <div class="col-12 d-flex flex-wrap gap-3 align-items-center">
                 <button type="submit" class="btn btn-copper"></i>Enviar</button>
