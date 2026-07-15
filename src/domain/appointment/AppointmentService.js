@@ -4,13 +4,11 @@ export class AppointmentService {
     this.defaultSubmitMethod = defaultSubmitMethod;
   }
 
-  submit(appointmentRequest, method = this.defaultSubmitMethod) {
+  async submit(appointmentRequest, method = this.defaultSubmitMethod) {
     const delivery = this.deliveries[method];
-
     if (!delivery) {
       throw new Error(`Delivery method "${method}" is not configured.`);
     }
-
-    delivery.send(appointmentRequest);
+    await delivery.send(appointmentRequest);
   }
 }
