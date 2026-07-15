@@ -164,7 +164,7 @@
   text-transform: uppercase;
 }
 
-.about h2 {
+.about .about-text h2 {
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -246,6 +246,35 @@
   padding: 78px 0;
 }
 
+/* CURRÍCULO */
+
+.founder .about-image{
+    min-height:480px;
+}
+
+.founder .about-text{
+    padding:70px 4vw;
+}
+
+.founder .about-text h3{
+    margin-bottom:18px;
+}
+
+.founder .check-list{
+    margin-top:30px;
+}
+
+.founder .credential-box{
+    height:100%;
+    padding:55px;
+    margin-left:-20px;
+    position:relative;
+    z-index:2;
+    background:#fff;
+    border:1px solid rgba(208,136,90,.25);
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
 .timeline-item {
   border-left: 1px solid var(--cobre);
   margin-bottom: 1.25rem;
@@ -316,4 +345,43 @@ footer a:hover {
 .footer-mini {
   color: #aebdc1;
   font-size: .82rem;
+}
+
+.about-center{
+    max-width:850px;
+    margin:0 auto;
+    text-align:center;
+    padding:10px 20px 20px;
+}
+
+.about-center .eyebrow{
+    margin-bottom:6px;
+    letter-spacing:3px;
+}
+
+.about-center h2{
+    margin:0;
+    font-family:"Cinzel", serif;
+    font-size:2rem;
+    font-weight:500;
+    line-height:1.2;
+    letter-spacing:1px;
+    text-align:center;
+}
+
+.about-center .title-line{
+    width:60px;
+    margin:16px auto 20px;
+}
+
+.about-center p{
+    max-width:720px;
+    margin:0 auto 16px;
+    line-height:1.8;
+    font-size:1.05rem;
+    text-align:center;
+}
+
+.about-center p:last-child{
+    margin-bottom:0;
 }
