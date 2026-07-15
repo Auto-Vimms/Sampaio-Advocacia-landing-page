@@ -1,9 +1,8 @@
 import { Resend } from 'resend';
-
-const REQUIRED_FIELDS = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa'];
+import { REQUIRED_APPOINTMENT_FIELDS } from '../shared/appointmentFields.js';
 
 export function getMissingFields(body) {
-  return REQUIRED_FIELDS.filter((field) => !body?.[field]);
+  return REQUIRED_APPOINTMENT_FIELDS.filter((field) => !body?.[field]);
 }
 
 export function buildEmailContent(appointmentRequest) {

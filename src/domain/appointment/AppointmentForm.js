@@ -1,18 +1,14 @@
-const REQUIRED_FIELDS = ['nome', 'email', 'documento', 'telefone', 'observacoes'];
-
+import { REQUIRED_APPOINTMENT_FIELDS } from '../../../shared/appointmentFields.js';
 export class AppointmentForm {
   constructor(formElement) {
     if (!formElement) {
       throw new Error('Appointment form element was not found.');
     }
-
     this.formElement = formElement;
   }
-
   isValid() {
-    return REQUIRED_FIELDS.every((fieldId) => this.getInputValue(fieldId).length > 0);
+    return REQUIRED_APPOINTMENT_FIELDS.every((fieldId) => this.getInputValue(fieldId).length > 0);
   }
-
   collect() {
     return {
       nome: this.getInputValue('nome'),
@@ -22,18 +18,9 @@ export class AppointmentForm {
       tipoEmpresa: this.getInputValue('tipoEmpresa') || 'Nao informado',
       momento: this.getInputValue('momento') || 'Nao informado',
       observacoes: this.getInputValue('observacoes'),
-      servicos: this.getSelectedServices(),
     };
   }
-
   getInputValue(fieldId) {
     return this.formElement.querySelector(`#${fieldId}`)?.value.trim() ?? '';
-  }
-
-  getSelectedServices() {
-    const selectedServices = Array.from(this.formElement.querySelectorAll('.servico:checked'))
-      .map((item) => item.value);
-
-    return selectedServices.length ? selectedServices : ['Nao informado'];
   }
 }

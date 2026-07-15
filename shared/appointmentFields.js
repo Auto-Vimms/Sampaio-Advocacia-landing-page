@@ -1,0 +1,1 @@
+export const REQUIRED_APPOINTMENT_FIELDS = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa'];
