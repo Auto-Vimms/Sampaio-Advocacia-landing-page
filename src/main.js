@@ -14,25 +14,24 @@ const createAppointmentService = () => new AppointmentService({
 
 const initAppointmentForm = () => {
   const formElement = document.getElementById('form-agendamento');
-
   if (!formElement) {
     return;
   }
-
   const appointmentForm = new AppointmentForm(formElement);
   const appointmentService = createAppointmentService();
   const toast = new Toast();
-
-  formElement.addEventListener('submit', (event) => {
+  formElement.addEventListener('submit', async (event) => {
     event.preventDefault();
-
     if (!appointmentForm.isValid()) {
       formElement.reportValidity();
       return;
     }
-
-    appointmentService.submit(appointmentForm.collect());
-    toast.show('Agendamento preparado. Voce sera direcionado para o WhatsApp.');
+    try {
+      await appointmentService.submit(appointmentForm.collect());
+      toast.show('Agendamento enviado com sucesso.');
+    } catch {
+      toast.show('Nao foi possivel enviar o agendamento. Tente novamente.');
+    }
   });
 };
 

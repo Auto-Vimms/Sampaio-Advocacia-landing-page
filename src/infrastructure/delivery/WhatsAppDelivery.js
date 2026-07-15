@@ -3,17 +3,12 @@ export class WhatsAppDelivery {
     this.whatsappNumber = whatsappNumber;
     this.lawyerName = lawyerName;
   }
-
   send(appointmentRequest) {
     const message = this.createMessage(appointmentRequest);
     const url = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(message)}`;
-
     window.open(url, '_blank', 'noopener');
   }
-
   createMessage(appointmentRequest) {
-    const services = appointmentRequest.servicos.join(', ');
-
     return [
       `Ola, ${this.lawyerName}! Gostaria de solicitar um agendamento.`,
       `Nome: ${appointmentRequest.nome}`,
@@ -21,7 +16,7 @@ export class WhatsAppDelivery {
       `WhatsApp: ${appointmentRequest.telefone}`,
       `E-mail: ${appointmentRequest.email}`,
       `Tipo de empresa: ${appointmentRequest.tipoEmpresa}`,
-      `Momento do negócio: ${appointmentRequest.momento}`,
+      `Momento do negocio: ${appointmentRequest.momento}`,
       'Observações:',
       appointmentRequest.observacoes,
     ].join('\n');
