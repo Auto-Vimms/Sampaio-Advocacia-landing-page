@@ -2,7 +2,13 @@ import { Resend } from 'resend';
 import { REQUIRED_APPOINTMENT_FIELDS } from '../shared/appointmentFields.js';
 
 export function getMissingFields(body) {
-  return REQUIRED_APPOINTMENT_FIELDS.filter((field) => !body?.[field]);
+  const missingFields = REQUIRED_APPOINTMENT_FIELDS.filter((field) => !body?.[field]);
+
+  if (!body?.consentimento) {
+    missingFields.push('consentimento');
+  }
+
+  return missingFields;
 }
 
 export function buildEmailContent(appointmentRequest) {
@@ -15,6 +21,8 @@ export function buildEmailContent(appointmentRequest) {
     momento,
     observacoes,
   } = appointmentRequest;
+
+  const consentimentoData = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
   const subject = `Novo agendamento: ${nome}`;
 
@@ -29,6 +37,8 @@ export function buildEmailContent(appointmentRequest) {
     `Momento do negocio: ${momento || 'Nao informado'}`,
     'Observacoes:',
     observacoes || 'Nenhuma observacao informada.',
+    '',
+    `Consentimento com a Politica de Privacidade: aceito em ${consentimentoData}.`,
   ].join('\n');
 
   const html = `
@@ -42,6 +52,7 @@ export function buildEmailContent(appointmentRequest) {
       <p><strong>Momento do negocio:</strong> ${momento || 'Nao informado'}</p>
       <p><strong>Observacoes:</strong></p>
       <p>${observacoes || 'Nenhuma observacao informada.'}</p>
+      <p><strong>Consentimento com a Politica de Privacidade:</strong> aceito em ${consentimentoData}.</p>
     </div>
   `;
 

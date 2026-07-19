@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { getMissingFields, buildEmailContent } from '../../api/send-email.js';
 
-const REQUIRED_FIELDS_EXPECTED = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa'];
+const REQUIRED_FIELDS_EXPECTED = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa', 'consentimento'];
 
 describe('getMissingFields', () => {
   it('returns an empty array when all required fields are present', () => {
@@ -11,6 +11,7 @@ describe('getMissingFields', () => {
       telefone: '11999999999',
       documento: '12345678900',
       tipoEmpresa: 'MEI',
+      consentimento: true,
     };
 
     expect(getMissingFields(body)).toEqual([]);
@@ -20,6 +21,7 @@ describe('getMissingFields', () => {
     const body = {
       nome: 'Joao',
       email: 'joao@teste.com',
+      consentimento: true,
     };
 
     expect(getMissingFields(body)).toEqual(['telefone', 'documento', 'tipoEmpresa']);
@@ -32,6 +34,7 @@ describe('getMissingFields', () => {
       telefone: '11999999999',
       documento: '12345678900',
       tipoEmpresa: 'MEI',
+      consentimento: true,
     };
 
     expect(getMissingFields(body)).toEqual(['nome']);
@@ -39,6 +42,19 @@ describe('getMissingFields', () => {
 
   it('does not throw when body is undefined', () => {
     expect(getMissingFields(undefined)).toEqual(REQUIRED_FIELDS_EXPECTED);
+  });
+
+  it('treats a missing or unchecked consentimento as missing', () => {
+    const body = {
+      nome: 'Joao',
+      email: 'joao@teste.com',
+      telefone: '11999999999',
+      documento: '12345678900',
+      tipoEmpresa: 'MEI',
+      consentimento: false,
+    };
+
+    expect(getMissingFields(body)).toEqual(['consentimento']);
   });
 });
 
@@ -51,6 +67,7 @@ describe('buildEmailContent', () => {
     tipoEmpresa: 'MEI',
     momento: 'Quero abrir minha empresa',
     observacoes: 'Preciso de ajuda com contrato social.',
+    consentimento: true,
   };
 
   it('builds the subject using the requester name', () => {
@@ -87,5 +104,12 @@ describe('buildEmailContent', () => {
     const { text } = buildEmailContent({ ...appointmentRequest, observacoes: undefined });
 
     expect(text).toContain('Nenhuma observacao informada.');
+  });
+
+  it('includes the consent confirmation in the text and html versions', () => {
+    const { text, html } = buildEmailContent(appointmentRequest);
+
+    expect(text).toContain('Consentimento com a Politica de Privacidade: aceito em');
+    expect(html).toContain('Consentimento com a Politica de Privacidade:');
   });
 });
