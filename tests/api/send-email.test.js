@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { getMissingFields, buildEmailContent } from '../../api/send-email.js';
 
-const REQUIRED_FIELDS_EXPECTED = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa', 'consentimento'];
+const REQUIRED_FIELDS_EXPECTED = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa', 'consentimento', 'veracidade'];
 
 describe('getMissingFields', () => {
   it('returns an empty array when all required fields are present', () => {
@@ -12,6 +12,7 @@ describe('getMissingFields', () => {
       documento: '12345678900',
       tipoEmpresa: 'MEI',
       consentimento: true,
+      veracidade: true,
     };
 
     expect(getMissingFields(body)).toEqual([]);
@@ -22,6 +23,7 @@ describe('getMissingFields', () => {
       nome: 'Joao',
       email: 'joao@teste.com',
       consentimento: true,
+      veracidade: true,
     };
 
     expect(getMissingFields(body)).toEqual(['telefone', 'documento', 'tipoEmpresa']);
@@ -35,6 +37,7 @@ describe('getMissingFields', () => {
       documento: '12345678900',
       tipoEmpresa: 'MEI',
       consentimento: true,
+      veracidade: true,
     };
 
     expect(getMissingFields(body)).toEqual(['nome']);
@@ -52,9 +55,24 @@ describe('getMissingFields', () => {
       documento: '12345678900',
       tipoEmpresa: 'MEI',
       consentimento: false,
+      veracidade: true,
     };
 
     expect(getMissingFields(body)).toEqual(['consentimento']);
+  });
+
+  it('treats a missing or unchecked veracidade as missing', () => {
+    const body = {
+      nome: 'Joao',
+      email: 'joao@teste.com',
+      telefone: '11999999999',
+      documento: '12345678900',
+      tipoEmpresa: 'MEI',
+      consentimento: true,
+      veracidade: false,
+    };
+
+    expect(getMissingFields(body)).toEqual(['veracidade']);
   });
 });
 
@@ -68,6 +86,7 @@ describe('buildEmailContent', () => {
     momento: 'Quero abrir minha empresa',
     observacoes: 'Preciso de ajuda com contrato social.',
     consentimento: true,
+    veracidade: true,
   };
 
   it('builds the subject using the requester name', () => {
@@ -111,5 +130,12 @@ describe('buildEmailContent', () => {
 
     expect(text).toContain('Consentimento com a Politica de Privacidade: aceito em');
     expect(html).toContain('Consentimento com a Politica de Privacidade:');
+  });
+
+  it('includes the veracity declaration in the text and html versions', () => {
+    const { text, html } = buildEmailContent(appointmentRequest);
+
+    expect(text).toContain('Declaracao de veracidade das informacoes: aceito em');
+    expect(html).toContain('Declaracao de veracidade das informacoes:');
   });
 });

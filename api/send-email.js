@@ -8,6 +8,10 @@ export function getMissingFields(body) {
     missingFields.push('consentimento');
   }
 
+  if (!body?.veracidade) {
+    missingFields.push('veracidade');
+  }
+
   return missingFields;
 }
 
@@ -22,7 +26,7 @@ export function buildEmailContent(appointmentRequest) {
     observacoes,
   } = appointmentRequest;
 
-  const consentimentoData = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+  const submissionDate = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
   const subject = `Novo agendamento: ${nome}`;
 
@@ -38,7 +42,8 @@ export function buildEmailContent(appointmentRequest) {
     'Observacoes:',
     observacoes || 'Nenhuma observacao informada.',
     '',
-    `Consentimento com a Politica de Privacidade: aceito em ${consentimentoData}.`,
+    `Consentimento com a Politica de Privacidade: aceito em ${submissionDate}.`,
+    `Declaracao de veracidade das informacoes: aceito em ${submissionDate}.`,
   ].join('\n');
 
   const html = `
@@ -52,7 +57,8 @@ export function buildEmailContent(appointmentRequest) {
       <p><strong>Momento do negocio:</strong> ${momento || 'Nao informado'}</p>
       <p><strong>Observacoes:</strong></p>
       <p>${observacoes || 'Nenhuma observacao informada.'}</p>
-      <p><strong>Consentimento com a Politica de Privacidade:</strong> aceito em ${consentimentoData}.</p>
+      <p><strong>Consentimento com a Politica de Privacidade:</strong> aceito em ${submissionDate}.</p>
+      <p><strong>Declaracao de veracidade das informacoes:</strong> aceito em ${submissionDate}.</p>
     </div>
   `;
 
