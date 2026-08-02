@@ -177,11 +177,7 @@
 }
 
 .about-image {
-  background:
-    linear-gradient(0deg, rgba(3, 27, 34, .18), rgba(3, 27, 34, .18)),
-    radial-gradient(circle at 62% 37%, rgba(212, 138, 104, .35), transparent 20%),
-    linear-gradient(135deg, #101820, #3b2b25);
-  min-height: 560px;
+  height: 560px;
   overflow: hidden;
   position: relative;
 }
@@ -189,19 +185,18 @@
 .about-image::before {
   border: 1px solid rgba(212, 138, 104, .35);
   content: "";
-  inset: 12%;
+  inset: 0;
+  pointer-events: none;
   position: absolute;
+  z-index: 1;
 }
 
-.about-image::after {
-  color: #fff;
-  content: "Foto profissional da advogada";
-  font-family: 'Cinzel', serif;
-  inset: auto 8% 9%;
-  letter-spacing: .11em;
-  opacity: .78;
-  position: absolute;
-  text-align: center;
+.about-image__photo {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
 }
 
 .pillars {
