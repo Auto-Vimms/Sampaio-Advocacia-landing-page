@@ -1,5 +1,5 @@
 .navbar {
-  background: rgba(3, 27, 34, .92);
+  background: rgba(0, 0, 0, .92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
@@ -56,9 +56,9 @@
 .hero {
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(3, 27, 34, .98) 0%, rgba(3, 27, 34, .90) 44%, rgba(3, 27, 34, .58) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, .98) 0%, rgba(0, 0, 0, .90) 44%, rgba(0, 0, 0, .58) 100%),
     radial-gradient(circle at 78% 30%, rgba(255, 255, 255, .12), transparent 23%),
-    linear-gradient(135deg, #092f39 0%, #031b22 65%);
+    linear-gradient(135deg, #0d0d0d 0%, #000000 65%);
   color: #fff;
   display: flex;
   min-height: 720px;
@@ -329,7 +329,7 @@
 }
 
 footer {
-  background: #031b22;
+  background: #000000;
   color: #e8f0f2;
   padding: 28px 0 20px;
 }
