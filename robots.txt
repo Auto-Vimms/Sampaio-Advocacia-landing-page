@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://aliciasampaioadvocacia.com.br/sitemap.xml
