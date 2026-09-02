@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getMissingFields, buildEmailContent } from '../../api/send-email.js';
+import { getMissingFields, buildEmailContent, escapeHtml } from '../../api/send-email.js';
 
 const REQUIRED_FIELDS_EXPECTED = ['nome', 'email', 'telefone', 'documento', 'tipoEmpresa', 'consentimento', 'veracidade'];
 
@@ -137,5 +137,63 @@ describe('buildEmailContent', () => {
 
     expect(text).toContain('Declaracao de veracidade das informacoes: aceito em');
     expect(html).toContain('Declaracao de veracidade das informacoes:');
+  });
+
+  it('escapes user-provided values in the html version', () => {
+    const { html } = buildEmailContent({
+      ...appointmentRequest,
+      nome: '<script>alert("x")</script>',
+    });
+
+    expect(html).not.toContain('<script>alert("x")</script>');
+    expect(html).toContain('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
+  });
+
+  it('keeps the plain-text version unescaped', () => {
+    const { text } = buildEmailContent({ ...appointmentRequest, nome: 'Tom & Jerry' });
+
+    expect(text).toContain('Nome: Tom & Jerry');
+  });
+
+  it('converts newlines in observacoes to <br> in the html version but not in the text version', () => {
+    const { html, text } = buildEmailContent({
+      ...appointmentRequest,
+      observacoes: 'linha 1\nlinha 2',
+    });
+
+    expect(html).toContain('linha 1<br>linha 2');
+    expect(text).toContain('linha 1\nlinha 2');
+  });
+
+  it('includes the firm name and submission timestamp footer in the text version', () => {
+    const { text } = buildEmailContent(appointmentRequest);
+
+    expect(text).toContain('Sampaio Advocacia');
+    expect(text).toContain('Agendamento recebido em');
+    expect(text).toContain('(America/Sao_Paulo)');
+  });
+
+  it('renders the Sampaio Advocacia logo in the html header', () => {
+    const { html } = buildEmailContent(appointmentRequest);
+
+    expect(html).toContain('sampaio-advocacia-logo.png');
+    expect(html).toContain('Sampaio Advocacia');
+  });
+});
+
+describe('escapeHtml', () => {
+  it('escapes the HTML-significant characters', () => {
+    expect(escapeHtml('<b>Tom & "Jerry" \'x\'</b>')).toBe(
+      '&lt;b&gt;Tom &amp; &quot;Jerry&quot; &#39;x&#39;&lt;/b&gt;',
+    );
+  });
+
+  it('returns an empty string for null or undefined', () => {
+    expect(escapeHtml(null)).toBe('');
+    expect(escapeHtml(undefined)).toBe('');
+  });
+
+  it('leaves a plain string unchanged', () => {
+    expect(escapeHtml('Joao da Silva')).toBe('Joao da Silva');
   });
 });
