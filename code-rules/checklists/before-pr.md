@@ -33,3 +33,9 @@
 - [ ] **Changed files**
 - [ ] **Tests**
 - [ ] **Follow-up** (se houver pontos deixados para depois)
+
+## Ao concluir (após abrir a PR)
+
+- [ ] Comentário de fechamento postado no card do Linear, no padrão do projeto
+      (`## Resumo do que foi feito` + **Problemas / decisões no caminho** + `## Pendente`,
+      com links para os cards relacionados). Ver `rules/00-workflow.md`.
