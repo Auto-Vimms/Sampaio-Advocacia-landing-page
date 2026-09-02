@@ -35,3 +35,16 @@ validação", depois "ligar no `main.js`". Não é "implementar o formulário in
 2. Confirme o entendimento do pedido em voz alta (o que muda, onde, por quê).
 3. Liste as decisões de negócio em aberto e pergunte.
 4. Só então proponha a primeira etapa.
+
+## Ao concluir a task
+
+Depois de finalizar a implementação (código + testes passando + PR aberta), **poste um
+comentário de fechamento no card do Linear**, seguindo o padrão dos comentários anteriores
+do projeto (referência: card DEV-25):
+
+- Seção `## Resumo do que foi feito`, com **subtítulos em negrito** agrupando o trabalho
+  (a mudança principal e, quando houver, Segurança, Qualidade, Infraestrutura...).
+- Seção **Problemas / decisões no caminho**: o que deu errado, o que foi descartado e por
+  quê, o que ficou fora do escopo — com link para os cards criados.
+- Seção `## Pendente`: o que ficou para depois, linkando os cards relacionados.
+- Em português; nomes de arquivo/símbolo em `code`; links para as issues relacionadas.
