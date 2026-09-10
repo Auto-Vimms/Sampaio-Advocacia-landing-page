@@ -4,7 +4,10 @@ import { AppointmentService } from './domain/appointment/AppointmentService.js';
 import { EmailDelivery } from './infrastructure/delivery/EmailDelivery.js';
 import { WhatsAppDelivery } from './infrastructure/delivery/WhatsAppDelivery.js';
 import { ContactLinks } from './ui/ContactLinks.js';
+import { Redirect } from './ui/Redirect.js';
 import { RevealObserver } from './ui/RevealObserver.js';
+import { SubmitButtonState } from './ui/SubmitButtonState.js';
+import { submitAppointment } from './ui/submitAppointment.js';
 import { Toast } from './ui/Toast.js';
 
 const createAppointmentService = () => new AppointmentService({
@@ -20,18 +23,15 @@ const initAppointmentForm = () => {
   const appointmentForm = new AppointmentForm(formElement);
   const appointmentService = createAppointmentService();
   const toast = new Toast();
-  formElement.addEventListener('submit', async (event) => {
+  const submitButtonState = new SubmitButtonState(formElement.querySelector('button[type="submit"]'));
+  const redirect = new Redirect();
+  formElement.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!appointmentForm.isValid()) {
       formElement.reportValidity();
       return;
     }
-    try {
-      await appointmentService.submit(appointmentForm.collect());
-      toast.show('Agendamento enviado com sucesso.');
-    } catch {
-      toast.show('Nao foi possivel enviar o agendamento. Tente novamente.');
-    }
+    submitAppointment({ appointmentForm, appointmentService, submitButtonState, redirect, toast });
   });
 };
 
