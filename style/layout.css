@@ -272,16 +272,6 @@
     box-shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
-.timeline-item {
-  border-left: 1px solid var(--cobre);
-  margin-bottom: 1.25rem;
-  padding-left: 1rem;
-}
-
-.timeline-item strong {
-  display: block;
-}
-
 .agendamento {
   background: #fbf8f4;
   padding: 78px 0;
