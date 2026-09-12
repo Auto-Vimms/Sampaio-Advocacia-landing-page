@@ -13,6 +13,10 @@
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 103px;
+}
+
 body {
   background: var(--offwhite);
   color: var(--texto);
