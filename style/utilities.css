@@ -28,6 +28,14 @@
   max-width: 680px;
 }
 
+.max-width-quote {
+  max-width: 860px;
+}
+
+.section-top-offset {
+  padding-top: 8rem;
+}
+
 @media (max-width: 991.98px) {
   .hero {
     min-height: 640px;
