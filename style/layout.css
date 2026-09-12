@@ -201,7 +201,7 @@
 }
 
 .pillars {
-  background: var(--azul-profundo);
+  background: var(--preto-profundo);
   color: #fff;
   padding: 58px 0 44px;
 }
@@ -296,7 +296,7 @@
 }
 
 .appointment-sidebar {
-  background: var(--azul-profundo);
+  background: var(--preto-profundo);
   color: #fff;
   height: 100%;
   padding: 2rem;
