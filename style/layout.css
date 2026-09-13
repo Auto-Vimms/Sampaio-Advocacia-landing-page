@@ -272,6 +272,31 @@
     box-shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
+.founder .credential-box p{
+    text-align:justify;
+}
+
+.founder-quote{
+    border:0;
+    margin:0;
+    margin-top:auto;
+    padding:30px 0 0 2.5rem;
+}
+
+.founder-quote p{
+    color:var(--texto);
+    font-style:italic;
+    margin-bottom:.5rem;
+}
+
+.founder-quote__author{
+    color:var(--cobre);
+    display:block;
+    font-style:normal;
+    font-weight:600;
+    text-align:right;
+}
+
 .agendamento {
   background: #fbf8f4;
   padding: 78px 0;
